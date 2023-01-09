@@ -3,12 +3,14 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
+const fileUpload = require('express-fileupload')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 
 const app = express()
 
+app.use(fileUpload())
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
